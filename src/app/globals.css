@@ -1,1 +1,54 @@
 @import "tailwindcss";
+
+@theme {
+  --color-ink-50: oklch(0.985 0.002 280);
+  --color-ink-100: oklch(0.967 0.003 280);
+  --color-ink-200: oklch(0.92 0.005 280);
+  --color-ink-300: oklch(0.85 0.007 280);
+  --color-ink-400: oklch(0.68 0.011 280);
+  --color-ink-500: oklch(0.55 0.013 280);
+  --color-ink-600: oklch(0.44 0.014 280);
+  --color-ink-700: oklch(0.35 0.014 280);
+  --color-ink-800: oklch(0.26 0.013 280);
+  --color-ink-900: oklch(0.19 0.012 280);
+
+  --color-brand-50: oklch(0.97 0.018 330);
+  --color-brand-100: oklch(0.94 0.035 330);
+  --color-brand-300: oklch(0.8 0.09 330);
+  --color-brand-500: oklch(0.63 0.16 330);
+  --color-brand-600: oklch(0.56 0.17 330);
+  --color-brand-700: oklch(0.47 0.15 330);
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-ink-50 text-ink-800 antialiased;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-brand-500;
+  }
+}
+
+/*
+ * Printing a receipt: drop the dashboard chrome and anything marked
+ * print:hidden, so the sheet that comes out is just the receipt.
+ */
+@media print {
+  aside,
+  nav {
+    display: none !important;
+  }
+
+  main {
+    padding: 0 !important;
+  }
+
+  body {
+    background: #fff;
+  }
+}

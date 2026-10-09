@@ -6,20 +6,38 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "typecheck": "next typegen && tsc --noEmit",
+    "db:link": "supabase link",
+    "db:push": "supabase db push",
+    "db:types": "supabase gen types typescript --linked --schema public > src/lib/types/database.generated.ts",
+    "test:rls": "node scripts/test-rls.mjs",
+    "test:cascade": "node scripts/test-cascade.mjs",
+    "test:signup": "node scripts/test-signup.mjs",
+    "test:time": "node scripts/test-time.mjs",
+    "test:money": "node scripts/test-money.mjs",
+    "test:reports": "node scripts/test-reports.mjs",
+    "test:audit": "node scripts/test-audit.mjs",
+    "test:forms": "node scripts/test-forms.mjs"
   },
   "dependencies": {
+    "@supabase/ssr": "^0.12.7",
+    "@supabase/supabase-js": "^2.116.0",
     "next": "16.3.5",
     "react": "19.2.8",
-    "react-dom": "19.2.8"
+    "react-dom": "19.2.8",
+    "server-only": "^0.0.1",
+    "zod": "^4.6.5"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "dotenv": "^18.0.2",
     "eslint": "^9",
     "eslint-config-next": "16.3.5",
+    "supabase": "^2.117.0",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
